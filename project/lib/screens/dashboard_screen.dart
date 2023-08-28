@@ -21,7 +21,7 @@ class _ManagementPageState extends State<ManagementPage> {
   String? creditValue;
   String? teachernameValue;
   String? basicsubjectValue;
-  late TextEditingController controller;
+  late TextEditingController controller;//มีไว้ทำอะไร?
 
   TextEditingController coursecodeC = TextEditingController();
   TextEditingController coursenameC = TextEditingController();
