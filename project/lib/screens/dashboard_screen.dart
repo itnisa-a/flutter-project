@@ -15,7 +15,7 @@ class ManagementPage extends StatefulWidget {
 
 class _ManagementPageState extends State<ManagementPage> {
 
-  CollectionReference addsubject = FirebaseFirestore.instance.collection('subject');
+  CollectionReference addsubject = FirebaseFirestore.instance.collection('subject'); //call subject databasename
   final _key = GlobalKey<FormState>();
   String? selectedValue;
   String? creditValue;
@@ -28,7 +28,7 @@ class _ManagementPageState extends State<ManagementPage> {
 
   void adddata() async {
     await addsubject.add({
-      "coursecode": coursecodeC.text.trim(),
+      "coursecode": coursecodeC.text.trim(), //couresecode is a 
       "credit": creditValue.toString(),
       "coursename": coursenameC.text.trim(),
       "teachername": teachernameValue.toString(),
