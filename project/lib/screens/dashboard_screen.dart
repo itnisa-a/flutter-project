@@ -15,7 +15,7 @@ class ManagementPage extends StatefulWidget {
 
 class _ManagementPageState extends State<ManagementPage> {
 
-  CollectionReference addsubject = FirebaseFirestore.instance.collection('subject'); //call subject databasename
+  CollectionReference addsubject = FirebaseFirestore.instance.collection('subject'); //call subject tablename //แล้วถ้าต้องการระบุ document(ID) ทำยังไง .doc() แล้ว error ต้องอาศัย Future?
   final _key = GlobalKey<FormState>();
   String? selectedValue;
   String? creditValue;
@@ -26,14 +26,14 @@ class _ManagementPageState extends State<ManagementPage> {
   TextEditingController coursecodeC = TextEditingController();
   TextEditingController coursenameC = TextEditingController();
 
-  void adddata() async {
+  void adddata() async { //from ตกลง button
     await addsubject.add({
-      "coursecode": coursecodeC.text.trim(), //couresecode is a 
+      "coursecode": coursecodeC.text.trim(), //couresecode is a field name amd trim() is a String Convert function for \t \n etc.
       "credit": creditValue.toString(),
       "coursename": coursenameC.text.trim(),
       "teachername": teachernameValue.toString(),
       "basicsubject": basicsubjectValue.toString()
-    }).whenComplete(() => Navigator.pop(context));
+    }).whenComplete(() => Navigator.pop(context)); //when all data is saved in database, close popup
   }
   @override
   void initState() {
@@ -244,7 +244,7 @@ class _ManagementPageState extends State<ManagementPage> {
                         color: Color.fromRGBO(47, 51, 55, 1)),
                       child: TextButton(
                         
-                        onPressed: () {  },
+                        onPressed: () {  }, // มันยังไงกัน มันเรียกฟังก์ชันไหน??
                         child: Text('นำเข้าหลักสูตร',
                         style: TextStyle(
                           color: Colors.white,
@@ -699,7 +699,7 @@ class _ManagementPageState extends State<ManagementPage> {
                       color: Color.fromRGBO(0, 102, 94, 1)),
                     child: TextButton(
                       onPressed: () {
-                        adddata();
+                        adddata(); // operate all input data on popup into database.
                             }, 
                     child: Text("ตกลง",
                     style: TextStyle(
