@@ -4,6 +4,9 @@ import 'package:ku_t/screens/dashboard_screen.dart';
 import 'package:sidebarx/sidebarx.dart';
 import 'package:unicons/unicons.dart';
 
+//on test
+import 'package:ku_t/screens/import_course.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -85,7 +88,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     builder: (context,child){
                       switch(_controller.selectedIndex){
                         case 0: _key.currentState?.closeDrawer();
-                        return ManagementPage();
+                        //return ManagementPage();
+
+                        //------------------------on test---------------------------------
+                        return ImportPage();
+
+                        //----------------------------------------------------------------
                         case 1: _key.currentState?.closeDrawer();
                         return Center(
                           child: Text('Search',style: TextStyle(color: Colors.white,fontSize: 40),),
