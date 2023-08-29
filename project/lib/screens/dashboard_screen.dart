@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:ku_t/Dropdown/BasicsubjectModel.dart';
 import 'package:ku_t/Dropdown/CraditModel.dart';
 import 'package:ku_t/screens/import_course.dart';
-
-
 import '../Dropdown/TeachernameModel.dart';
 
 class ManagementPage extends StatefulWidget {
@@ -16,7 +14,7 @@ class ManagementPage extends StatefulWidget {
 
 class _ManagementPageState extends State<ManagementPage> {
 
-  CollectionReference addsubject = FirebaseFirestore.instance.collection('subject'); //call subject tablename //แล้วถ้าต้องการระบุ document(ID) ทำยังไง .doc() แล้ว error ต้องอาศัย Future?
+  CollectionReference addsubject = FirebaseFirestore.instance.collection('subject'); //call subject tablename //แล้วถ้าต้องการระบุ document(ID) ทำยังไง .doc() แล้ว error ต้องอาศัย Future ใช่หรือไม่?
   final _key = GlobalKey<FormState>();
   String? selectedValue;
   String? creditValue;
@@ -226,7 +224,7 @@ class _ManagementPageState extends State<ManagementPage> {
                       child: TextButton(
                         
                         onPressed: () {
-                          openDialog();
+                          //openDialog();
                         },
                         child: Text('เพิ่มรายวิชา',
                         style: TextStyle(
@@ -246,7 +244,7 @@ class _ManagementPageState extends State<ManagementPage> {
                       child: TextButton(
                         
                         onPressed: () {
-                          ImportPage();
+                          //print("Hit");
                         },
                         child: Text('นำเข้าหลักสูตร',
                         style: TextStyle(
@@ -421,7 +419,12 @@ class _ManagementPageState extends State<ManagementPage> {
                         child: TextButton(
                           
                           onPressed: () {
-
+                            //print("Hit");
+                            //ImportPage();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ImportPage()),
+                            );
                           },
                           child: Text('นำเข้าหลักสูตร',
                           style: TextStyle(

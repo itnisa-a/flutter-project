@@ -1,13 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:ku_t/Dropdown/BasicsubjectModel.dart';
-import 'package:ku_t/Dropdown/CraditModel.dart';
+//import 'package:ku_t/Dropdown/BasicsubjectModel.dart';
+//import 'package:ku_t/Dropdown/CraditModel.dart';
 
 
-import '../Dropdown/TeachernameModel.dart';
+//import '../Dropdown/TeachernameModel.dart';
 
 class ImportPage extends StatefulWidget {
-  const ImportPage({Key? key}) : super(key: key); //คืออะไร
+  // const ImportPage({Key? key}) : super(key: key); //คืออะไร
   
   @override
   State<ImportPage> createState() => _ImportPageState();
@@ -51,7 +51,7 @@ class _ImportPageState extends State<ImportPage> {
 
   @override
   Widget build(BuildContext context) {
-    final orientation = MediaQuery.of(context).orientation;
+    //final orientation = MediaQuery.of(context).orientation;
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 60,
