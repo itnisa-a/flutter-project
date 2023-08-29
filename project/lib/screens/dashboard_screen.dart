@@ -7,7 +7,7 @@ import 'package:ku_t/Dropdown/CraditModel.dart';
 import '../Dropdown/TeachernameModel.dart';
 
 class ManagementPage extends StatefulWidget {
-  const ManagementPage({Key? key}) : super(key: key);
+  const ManagementPage({Key? key}) : super(key: key); //คืออะไร
   
   @override
   State<ManagementPage> createState() => _ManagementPageState();
