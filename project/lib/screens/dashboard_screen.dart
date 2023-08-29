@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:ku_t/Dropdown/BasicsubjectModel.dart';
 import 'package:ku_t/Dropdown/CraditModel.dart';
+import 'package:ku_t/screens/import_course.dart';
 
 
 import '../Dropdown/TeachernameModel.dart';
@@ -217,7 +218,7 @@ class _ManagementPageState extends State<ManagementPage> {
                       ),
                       SizedBox(height: 10),
                       Container(
-                      width: MediaQuery.of(context).size.height,
+                      //width: MediaQuery.of(context).size.height,
                       padding: EdgeInsets.symmetric(vertical: 10, horizontal:10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
@@ -244,7 +245,9 @@ class _ManagementPageState extends State<ManagementPage> {
                         color: Color.fromRGBO(47, 51, 55, 1)),
                       child: TextButton(
                         
-                        onPressed: () {  }, // มันยังไงกัน มันเรียกฟังก์ชันไหน??
+                        onPressed: () {
+                          ImportPage();
+                        },
                         child: Text('นำเข้าหลักสูตร',
                         style: TextStyle(
                           color: Colors.white,
@@ -417,7 +420,9 @@ class _ManagementPageState extends State<ManagementPage> {
                           color: Color.fromRGBO(47, 51, 55, 1)),
                         child: TextButton(
                           
-                          onPressed: () {  },
+                          onPressed: () {
+
+                          },
                           child: Text('นำเข้าหลักสูตร',
                           style: TextStyle(
                             color: Colors.white,
