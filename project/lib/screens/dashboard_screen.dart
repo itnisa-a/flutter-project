@@ -2,11 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:ku_t/Dropdown/BasicsubjectModel.dart';
 import 'package:ku_t/Dropdown/CraditModel.dart';
-import 'package:ku_t/screens/import_course.dart';
+
+
 import '../Dropdown/TeachernameModel.dart';
 
 class ManagementPage extends StatefulWidget {
-  const ManagementPage({Key? key}) : super(key: key); //คืออะไร
+  const ManagementPage({Key? key}) : super(key: key);
   
   @override
   State<ManagementPage> createState() => _ManagementPageState();
@@ -14,25 +15,25 @@ class ManagementPage extends StatefulWidget {
 
 class _ManagementPageState extends State<ManagementPage> {
 
-  CollectionReference addsubject = FirebaseFirestore.instance.collection('subject'); //call subject tablename //แล้วถ้าต้องการระบุ document(ID) ทำยังไง .doc() แล้ว error ต้องอาศัย Future ใช่หรือไม่?
+  CollectionReference addsubject = FirebaseFirestore.instance.collection('subject');
   final _key = GlobalKey<FormState>();
   String? selectedValue;
   String? creditValue;
   String? teachernameValue;
   String? basicsubjectValue;
-  late TextEditingController controller;//มีไว้ทำอะไร?
+  late TextEditingController controller;
 
   TextEditingController coursecodeC = TextEditingController();
   TextEditingController coursenameC = TextEditingController();
 
-  void adddata() async { //from ตกลง button
+  void adddata() async {
     await addsubject.add({
-      "coursecode": coursecodeC.text.trim(), //couresecode is a field name amd trim() is a String Convert function for \t \n etc.
+      "coursecode": coursecodeC.text.trim(),
       "credit": creditValue.toString(),
       "coursename": coursenameC.text.trim(),
       "teachername": teachernameValue.toString(),
       "basicsubject": basicsubjectValue.toString()
-    }).whenComplete(() => Navigator.pop(context)); //when all data is saved in database, close popup
+    }).whenComplete(() => Navigator.pop(context));
   }
   @override
   void initState() {
@@ -216,7 +217,7 @@ class _ManagementPageState extends State<ManagementPage> {
                       ),
                       SizedBox(height: 10),
                       Container(
-                      //width: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.height,
                       padding: EdgeInsets.symmetric(vertical: 10, horizontal:10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
@@ -224,7 +225,7 @@ class _ManagementPageState extends State<ManagementPage> {
                       child: TextButton(
                         
                         onPressed: () {
-                          //openDialog();
+                          openDialog();
                         },
                         child: Text('เพิ่มรายวิชา',
                         style: TextStyle(
@@ -243,9 +244,7 @@ class _ManagementPageState extends State<ManagementPage> {
                         color: Color.fromRGBO(47, 51, 55, 1)),
                       child: TextButton(
                         
-                        onPressed: () {
-                          //print("Hit");
-                        },
+                        onPressed: () {  },
                         child: Text('นำเข้าหลักสูตร',
                         style: TextStyle(
                           color: Colors.white,
@@ -418,14 +417,7 @@ class _ManagementPageState extends State<ManagementPage> {
                           color: Color.fromRGBO(47, 51, 55, 1)),
                         child: TextButton(
                           
-                          onPressed: () {
-                            //print("Hit");
-                            //ImportPage();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => ImportPage()),
-                            );
-                          },
+                          onPressed: () {  },
                           child: Text('นำเข้าหลักสูตร',
                           style: TextStyle(
                             color: Colors.white,
@@ -707,7 +699,7 @@ class _ManagementPageState extends State<ManagementPage> {
                       color: Color.fromRGBO(0, 102, 94, 1)),
                     child: TextButton(
                       onPressed: () {
-                        adddata(); // operate all input data on popup into database.
+                        adddata();
                             }, 
                     child: Text("ตกลง",
                     style: TextStyle(
