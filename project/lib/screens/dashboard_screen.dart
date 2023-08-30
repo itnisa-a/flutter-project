@@ -2,10 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:ku_t/Dropdown/BasicsubjectModel.dart';
 import 'package:ku_t/Dropdown/CraditModel.dart';
+import 'package:ku_t/modules/component/Header_web.dart';
 import 'package:ku_t/screens/import_course.dart';
+import 'package:sidebarx/sidebarx.dart';
 
 
 import '../Dropdown/TeachernameModel.dart';
+import '../modules/router/router.dart';
 
 class ManagementPage extends StatefulWidget {
   const ManagementPage({Key? key}) : super(key: key);
@@ -54,35 +57,14 @@ class _ManagementPageState extends State<ManagementPage> {
   Widget build(BuildContext context) {
     final orientation = MediaQuery.of(context).orientation;
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 60,
-        title: Text(
-          'ระบบจัดตารางสอนอาจารย์ มหาวิทยาลัยเกษตรศาสตร์',
-          style: TextStyle(
-            fontSize: 16,
-            color: Color.fromRGBO(0, 102, 94, 1),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        elevation: 0,
-        backgroundColor: Color.fromRGBO(195, 231, 196, 1),
-      ),
+      appBar: NavBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
         child: Form(
           key: _key,
           child: Column(
             children: [
-              Container(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "การจัดการข้อมูลหลักสูตร",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 28,
-                  ),
-                ),
-              ),
+              _header(),
               Divider(height: 30),
               
               Container(
@@ -249,7 +231,7 @@ class _ManagementPageState extends State<ManagementPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ImportPage(),
+                              builder: (context) => router(controller: SidebarXController(selectedIndex: 1, extended: true)),
                             ),
                           );
                         },
@@ -429,7 +411,7 @@ class _ManagementPageState extends State<ManagementPage> {
                             Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ImportPage(),
+                              builder: (context) => router(controller: SidebarXController(selectedIndex: 1, extended: true)),
                             ),
                           );
                           },
@@ -754,4 +736,16 @@ class _ManagementPageState extends State<ManagementPage> {
         ),
       ),
     ));
+    Container _header(){
+      return Container(
+              alignment: Alignment.topLeft,
+              child: const Text(
+                "การจัดการข้อมูลหลักสูตร",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 28,
+                ),
+              ),
+            );
+    }
 }
